@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<templates id="template" xml:space="preserve">
+    <t t-name="tomo_custom_receipts_for_pos.Orderline" t-inherit="point_of_sale.Orderline" t-inherit-mode="extension">
+        <xpath expr="//span[@t-esc='line.productName']/.." position="attributes">
+            <attribute name="class">product-name d-inline-block flex-grow-1 pe-1 text-truncate</attribute>
+        </xpath>
+
+        <xpath expr="//span[@t-esc='line.productName']" position="before">
+            <span t-esc="line.POSOrderLineNumber" style="margin-right: 10px;"/>
+        </xpath>
+
+        <xpath expr="//t[@t-esc='line.price']/.." position="attributes">
+            <attribute name="class">product-price price</attribute>
+        </xpath>
+
+        <xpath expr="//span[@t-esc='line.qty']" position="attributes">
+            <attribute name="class">qty px-1 border rounded me-1</attribute>
+        </xpath>
+    </t>
+</templates>
