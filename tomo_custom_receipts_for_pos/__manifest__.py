@@ -21,7 +21,7 @@
 #
 ################################################################################
 {
-    'name': 'POS Receipt Design',
+    'name': 'Tomo POS Receipt Design',
     'version': '18.0.1.0.1',
     'category': 'Point of Sale',
     'summary': "POS Receipt, Receipt Design, POS Receipt Template, Design "
