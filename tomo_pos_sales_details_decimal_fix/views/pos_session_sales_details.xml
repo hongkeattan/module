@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+    <!-- Inherited POS Sales Details Report Template -->
+    <template id="pos_session_sales_details_tomo_pos_pivot_table_fix_inherited"
+              inherit_id="point_of_sale.pos_session_sales_details">
+
+        <xpath expr="//tr[@t-foreach='products']//td[3]" position="replace">
+            <td class="text-end fw-bold">
+                <span t-out="category['qty']"
+                      t-options="{'widget': 'float', 'decimal_precision': 'Product Unit of Measure'}">
+                    5
+                </span>
+            </td>
+        </xpath>
+
+        <xpath expr="//tr[@t-foreach='products']//tr[1]//td[3]" position="replace">
+            <td class="text-end">
+                <span t-out="line['quantity']"
+                      t-options="{'widget': 'float', 'decimal_precision': 'Product Unit of Measure'}">
+                    5
+                </span>
+                <t t-if='line["uom"] != "Units"'>
+                    <span t-out='line["uom"]'>Unit</span>
+                </t>
+            </td>
+        </xpath>
+
+        <xpath expr="//div[@id='sales']//tr[2]/td[3]" position="replace">
+            <td class="text-end">
+                <strong>
+                    <span t-out="products_info['qty']"
+                          t-options="{'widget': 'float', 'decimal_precision': 'Product Unit of Measure'}">
+                        5
+                    </span>
+                </strong>
+            </td>
+        </xpath>
+
+        <xpath expr="//tr[@t-foreach='refund_products']//td[4]" position="replace">
+            <td class="text-end fw-bold">
+                <span t-out="category['qty']"
+                      t-options="{'widget': 'float', 'decimal_precision': 'Product Unit of Measure'}">
+                    0
+                </span>
+            </td>
+        </xpath>
+
+        <xpath expr="//tr[@t-foreach='refund_products']//tr[1]//td[3]" position="replace">
+            <td class="text-end">
+                <td class="text-end">
+                    <span t-out="line['quantity']"
+                          t-options="{'widget': 'float', 'decimal_precision': 'Product Unit of Measure'}">
+                        0
+                    </span>
+                </td>
+                <t t-if='line["uom"] != "Units"'>
+                    <span t-out='line["uom"]'>Unit</span>
+                </t>
+            </td>
+        </xpath>
+
+        <xpath expr="//div[@id='refunds']//tr[2]/td[4]" position="replace">
+            <td class="text-end">
+                <strong>
+                    <span t-out="refund_info['qty']"
+                          t-options="{'widget': 'float', 'decimal_precision': 'Product Unit of Measure'}">
+                        0
+                    </span>
+                </strong>
+            </td>
+        </xpath>
+
+    </template>
+
+</odoo>
